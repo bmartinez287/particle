@@ -27,8 +27,9 @@ jobs:
     - run: npm ci
     - run: npm run build:drupal --if-present
     - run: npm run build:pl --if-present
-    - uses: actions/checkout@v2-beta # use either @v2-beta or @master. Eventually there will be a @v2 tag.
-    - name: checkout
+    # - uses: actions/checkout@v2-beta 
+    # use either @v2-beta or @master. Eventually there will be a @v2 tag.
+    # - name: checkout
     - name: setup git config
     - run: git config user.name "GitHub Actions Bot"
     - run: git config user.email "<>"
