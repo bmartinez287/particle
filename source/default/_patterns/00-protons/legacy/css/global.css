@@ -60,3 +60,7 @@
 .header__main {
   @apply font-utcheadings;
 }
+
+.democlass{
+  color: red;
+}
