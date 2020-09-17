@@ -28,6 +28,14 @@ jobs:
     - run: npm run build:drupal --if-present
     - run: npm run build:pl --if-present
 #     - run: npm test
-    - uses: stefanzweifel/git-auto-commit-action@v4
+    - name: Commit changes
+      uses: EndBug/add-and-commit@ts-only
       with:
-        commit_message: Commit dist changes
+        author_name: Bernardo Martinez
+        author_email: mail@example.com
+        message: "Adding files"
+        force: true
+        add: "*"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
