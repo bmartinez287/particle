@@ -30,10 +30,10 @@ jobs:
     # - uses: actions/checkout@v2-beta 
     # use either @v2-beta or @master. Eventually there will be a @v2 tag.
     # - name: checkout
-    - name: setup git config
+    # - name: setup git config
     - run: git config user.name "GitHub Actions Bot"
     - run: git config user.email "<>"
-    - name: commit
+    # - name: commit
     - run: git add .
     - run: git commit -m "new date commit"
     - run: git push
