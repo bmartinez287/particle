@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      ref: ${{ github.head_branch }}
+      ref: ${{ github.head_ref }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -30,12 +30,11 @@ jobs:
     - run: npm run build:drupal --if-present
     - run: npm run build:pl --if-present
 #     - run: npm test
-
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
     # Required
       commit_message: Dist folder
-      branch: ${{ github.head_branch }}
+      branch: ${{ github.head_ref }}
     # - name: Commit changes
     #   uses: EndBug/add-and-commit@ts-only
     #   with:
