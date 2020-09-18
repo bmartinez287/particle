@@ -32,8 +32,8 @@ jobs:
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
     # Required
-      commit_message: Dist folder
-      branch: ${{ github.head_ref }}
+       commit_message: Dist folder
+       branch: ${{ github.head_ref }}
     # - name: Commit changes
     #   uses: EndBug/add-and-commit@ts-only
     #   with:
