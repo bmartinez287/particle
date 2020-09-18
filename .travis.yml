@@ -37,7 +37,7 @@ script:
 before_deploy: 
    - git add .
    - git commit -m "Adding particle dist/ assets"
-   - git push
+  #  - git push origin develop
 
 notifications:
   email:
