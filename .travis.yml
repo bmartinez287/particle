@@ -21,7 +21,7 @@ before_install:
   - nvm use v14.7.0
   - npm install -g npm@latest
 install:
-  - npm ci
+  - npm install
   - npm run setup
 cache:
   directories:
@@ -31,7 +31,6 @@ before_script:
   - node --version
   - npm --version
 script:
-  - npm install
   - npm run build:drupal --if-present
   - npm run build:pl --if-present
 
