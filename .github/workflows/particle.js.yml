@@ -20,6 +20,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -27,14 +29,18 @@ jobs:
     - run: npm ci
     - run: npm run build:drupal --if-present
     - run: npm run build:pl --if-present
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply php-cs-fixer changes
     # - uses: actions/checkout@v2-beta 
     # use either @v2-beta or @master. Eventually there will be a @v2 tag.
     # - name: checkout
     # - name: setup git config
-    - run: git config user.name "GitHub Actions Bot"
-    - run: git config user.email "<>"
-    # - name: commit
-    - run: git add .
-    - run: git commit -m "new date commit"
-    - run: git push origin develop
+    # - run: git config user.name "GitHub Actions Bot"
+    # - run: git config user.email "<>"
+    # # - name: commit
+    # - run: git add .
+    # - run: git commit -m "new date commit"
+    # - run: git push origin develop
 
