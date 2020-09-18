@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2-beta
       with:
-        ref: ${{ github.head_ref }}
+        branch: ${{ github.head_ref }}
         fetch-depth: 2
 
     - name: Use Node.js ${{ matrix.node-version }}
