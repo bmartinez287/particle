@@ -4,8 +4,8 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [ develop ]
+  # push:
+  #   branches: [ develop ]
   pull_request:
     branches: [ develop ]
 
@@ -21,7 +21,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2-beta
       with:
-        ref: ${{ github.head_branch }}
+        ref: ${{ github.head_ref }}
+        fetch-depth: 2
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -33,7 +34,8 @@ jobs:
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Apply php-cs-fixer changes
+        commit_message: Data changes
+        branch: ${{ github.head_ref }}
     # - uses: actions/checkout@v2-beta 
     # use either @v2-beta or @master. Eventually there will be a @v2 tag.
     # - name: checkout
