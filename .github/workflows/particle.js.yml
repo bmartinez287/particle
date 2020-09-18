@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2-beta
       with:
         branch: ${{ github.head_ref }}
-        fetch-depth: 2
+        fetch-depth: 0
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
