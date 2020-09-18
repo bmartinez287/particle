@@ -36,5 +36,5 @@ jobs:
     # - name: commit
     - run: git add .
     - run: git commit -m "new date commit"
-    - run: git push origin
+    - run: git push origin develop
 
