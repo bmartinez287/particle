@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ref: ${{ github.head_branch }}
+        ref: ${{ GITHUB_HEAD_REF }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -30,16 +30,12 @@ jobs:
     - run: npm run build:pl --if-present
 #     - run: npm test
     - name: setup git config
-        run: |
-          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
+        run: git config user.name "GitHub Actions Bot"
+        run: git config user.email "<>"
     - name: commit
-        run: |
-          # Stage the file, commit and push
-          git add .
-          git commit -m "new date commit"
-          git push origin ${{ github.head_ref }}
+        run: git add .
+        run: git commit -m "new date commit"
+        run: git push origin ${{ GITHUB_HEAD_REF}}
     # - uses: stefanzweifel/git-auto-commit-action@v4
     #   with:
     # # Required
