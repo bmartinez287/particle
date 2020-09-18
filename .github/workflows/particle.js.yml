@@ -29,11 +29,23 @@ jobs:
     - run: npm run build:drupal --if-present
     - run: npm run build:pl --if-present
 #     - run: npm test
-    - uses: stefanzweifel/git-auto-commit-action@v4
-      with:
-    # Required
-       commit_message: Dist folder
-       branch: ${{ github.head_ref }}
+
+    - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add .
+          git commit -m "new date commit"
+          git push origin ${{ github.head_ref }}
+    # - uses: stefanzweifel/git-auto-commit-action@v4
+    #   with:
+    # # Required
+    #    commit_message: Dist folder
+    #    branch: ${{ github.head_ref }}
     # - name: Commit changes
     #   uses: EndBug/add-and-commit@ts-only
     #   with:
