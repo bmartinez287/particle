@@ -30,12 +30,12 @@ jobs:
     - run: npm run build:pl --if-present
 #     - run: npm test
     - name: setup git config
-        run: git config user.name "GitHub Actions Bot"
-        run: git config user.email "<>"
+      run: git config user.name "GitHub Actions Bot"
+      run: git config user.email "<>"
     - name: commit
-        run: git add .
-        run: git commit -m "new date commit"
-        run: git push origin ${{ GITHUB_HEAD_REF}}
+      run: git add .
+      run: git commit -m "new date commit"
+      run: git push origin ${{ GITHUB_HEAD_REF}}
     # - uses: stefanzweifel/git-auto-commit-action@v4
     #   with:
     # # Required
