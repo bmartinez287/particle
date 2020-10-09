@@ -14,6 +14,11 @@ matrix:
 #   - nvm install $TRAVIS_NODE_VERSION
 #   - nvm use $TRAVIS_NODE_VERSION
 #   - npm install -g npm@latest
+# blocklist
+branches:
+  except:
+  - develop
+
 before_install:
   # Disable xdebug.
   - nvm install v14.7.0
@@ -47,6 +52,3 @@ deploy:
   verbose: true
   on:
     branch: develop
-
-after_deploy:
-  - travis_terminate 1
