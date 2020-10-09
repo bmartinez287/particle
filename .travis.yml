@@ -14,11 +14,6 @@ matrix:
 #   - nvm install $TRAVIS_NODE_VERSION
 #   - nvm use $TRAVIS_NODE_VERSION
 #   - npm install -g npm@latest
-# blocklist
-branches:
-  except:
-  - develop
-
 before_install:
   # Disable xdebug.
   - nvm install v14.7.0
@@ -48,7 +43,7 @@ deploy:
   skip_cleanup: true
   keep_history: true
   github_token: ${GITHUB_API_KEY}  # Your GitHub token set in Travis CI console
-  target_branch: develop        # Add this line - To push into GitHub master branch
+  target_branch: ${TRAVIS_PULL_REQUEST_BRANCH} # Add this line - To push into GitHub master branch
   verbose: true
   on:
-    branch: develop
+    branch: ${TRAVIS_PULL_REQUEST_BRANCH}
