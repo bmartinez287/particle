@@ -102,7 +102,7 @@
 
 @media screen and (min-width: 992px) {
 	.block--system-branding-block img {
-		width: 60%;
+		width: 100%;
 	}
 }
 
@@ -111,6 +111,25 @@
 		-webkit-box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 		box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
 	}
+
+}
+@media screen and (max-width: 768px)  {
+	
+	.block--system-branding-block img{
+		/* background: red;      */
+		content:url("PowerCweb.svg");
+		width: 100%;
+		min-width: 15vw;
+	} 
+
+}
+/* iphone se size */
+@media (width: 320px){
+	
+	.header__container{
+		padding-right: 0rem;
+		padding-left: 0rem;
+	} 
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {
